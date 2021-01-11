@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/titleTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Title"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/authorTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Author"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/titleTxt"
+        app:layout_constraintTop_toBottomOf="@+id/titleTxt" />
+
+    <TextView
+        android:id="@+id/pagesTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="00"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/authorTxt"
+        app:layout_constraintTop_toBottomOf="@+id/authorTxt" />
+
+    <TextView
+        android:id="@+id/mediaTypeTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="type"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/pagesTxt"
+        app:layout_constraintStart_toEndOf="@+id/pagesTxt"
+        app:layout_constraintTop_toTopOf="@+id/pagesTxt" />
+
+    <TextView
+        android:id="@+id/isnbTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="isnb"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/publisherTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="publisher"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/isnbTxt"
+        app:layout_constraintTop_toBottomOf="@+id/isnbTxt" />
+
+    <TextView
+        android:id="@+id/countryTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="country"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/publisherTxt"
+        app:layout_constraintTop_toBottomOf="@+id/publisherTxt" />
+
+    <TextView
+        android:id="@+id/releasedTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:text="released"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/countryTxt"
+        app:layout_constraintTop_toBottomOf="@+id/countryTxt" />
+</androidx.constraintlayout.widget.ConstraintLayout>
