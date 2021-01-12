@@ -10,6 +10,7 @@ import com.haag.accenturetest.model.Book
 import com.haag.accenturetest.model.Character
 import com.haag.accenturetest.model.House
 import com.haag.accenturetest.model.Response
+import com.haag.accenturetest.util.Constants
 import com.haag.accenturetest.util.region
 import kotlinx.android.synthetic.main.item_books.view.*
 import kotlinx.android.synthetic.main.item_character.view.*
@@ -19,17 +20,11 @@ class CategoryAdapter(
     private val response: Response
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    companion object {
-        const val TYPE_BOOK = 0
-        const val TYPE_HOUSE = 1
-        const val TYPE_CHARACTER = 2
-    }
-
     override fun getItemCount(): Int = response.list.size
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (response.type) {
-            TYPE_BOOK -> {
+            Constants.TYPE_BOOK -> {
                 BookViewHolder(
                     LayoutInflater.from(parent.context).inflate(
                         R.layout.item_books,
@@ -39,7 +34,7 @@ class CategoryAdapter(
                 )
             }
 
-            TYPE_CHARACTER -> {
+            Constants.TYPE_CHARACTER -> {
                 CharacterViewHolder(
                     LayoutInflater.from(parent.context).inflate(
                         R.layout.item_character,
@@ -61,26 +56,24 @@ class CategoryAdapter(
 
             }
         }
-
-
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (response.type) {
-            TYPE_BOOK -> {
+            Constants.TYPE_BOOK -> {
                 val book: Book = response.list[position] as Book
 
                 val viewHolder = holder as BookViewHolder
                 viewHolder.bind(book)
             }
-            TYPE_CHARACTER -> {
+            Constants.TYPE_CHARACTER -> {
                 val character: Character = response.list[position] as Character
 
                 val viewHolder = holder as CharacterViewHolder
                 viewHolder.bind(character)
             }
 
-            TYPE_HOUSE -> {
+            Constants.TYPE_HOUSE -> {
                 val house: House = response.list[position] as House
 
                 val viewHolder = holder as HouseViewHolder
@@ -103,31 +96,13 @@ class BookViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     fun bind(b: Book) {
         title.text = b.title
-        for (a in b.authors) author.append("${a}, ")
+        for (b in b.authors) author.append("${b}, ")
         pages.text = b.numberOfPages.toString()
         mediaType.text = b.mediaType
         isnb.text = b.isbn
         publisher.text = b.publisher
         country.text = b.country
         released.text = b.released
-    }
-}
-
-class HouseViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-    private var name = view.nameHouseTxt
-    private var title = view.titleHouseTxt
-    private var img = view.houseImg
-
-    fun bind(h: House, view: View) {
-        name.text = h.name
-        title.text = h.title
-
-        Glide
-            .with(view)
-            .load(region(h.region))
-            .centerCrop()
-            .placeholder(R.drawable.ic_launcher_background)
-            .into(img);
     }
 }
 
@@ -150,5 +125,23 @@ class CharacterViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         for (c in c.titles) titles.append("${c}, ")
         for (c in c.aliases) aliases.append("${c}, ")
         for (c in c.playedBy) playedBy.append("${c}, ")
+    }
+}
+
+class HouseViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    private var name = view.nameHouseTxt
+    private var title = view.titleHouseTxt
+    private var img = view.houseImg
+
+    fun bind(h: House, view: View) {
+        name.text = h.name
+        title.text = h.title
+
+        Glide
+            .with(view)
+            .load(region(h.region))
+            .centerCrop()
+            .placeholder(R.drawable.ic_launcher_background)
+            .into(img);
     }
 }

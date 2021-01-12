@@ -9,18 +9,18 @@ import dagger.hilt.android.components.ApplicationComponent
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Singleton
 
-@InstallIn(ApplicationComponent::class)
 @Module
-class DatabaseModule {
+@InstallIn(ApplicationComponent::class)
+object DatabaseModule {
     
     @Provides
-    fun provideChannelDao(appDatabase: CategoriesDatabase): CategoriesDao {
+    fun provideCategoryDao(appDatabase: CategoriesDatabase): CategoriesDao {
         return appDatabase.categoriesDao()
     }
 
     @Provides
     @Singleton
-    fun provideAppDatabase(@ApplicationContext appContext: Context): CategoriesDatabase {
+    fun provideCategoryDatabase(@ApplicationContext appContext: Context): CategoriesDatabase {
         return Room.databaseBuilder(
             appContext,
             CategoriesDatabase::class.java,

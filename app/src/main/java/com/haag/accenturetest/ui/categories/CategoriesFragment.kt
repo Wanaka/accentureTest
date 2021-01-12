@@ -19,12 +19,6 @@ class CategoriesFragment : Fragment() {
 
     private val vm: CategoriesViewModel by viewModels()
 
-    var TAG = "CategoriesViewModel"
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,16 +27,13 @@ class CategoriesFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_categories, container, false)
     }
 
-    override fun onResume() {
-        super.onResume()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        activity?.title = getString(R.string.categories)
+
         vm.getCategoriesDB().observe(viewLifecycleOwner, Observer {
             categoriesAdapter(it)
         })
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        activity?.title = getString(R.string.categories)
     }
 
     private fun categoriesAdapter(list: List<Categories>) {

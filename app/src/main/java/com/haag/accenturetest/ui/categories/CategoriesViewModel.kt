@@ -26,10 +26,10 @@ class CategoriesViewModel @ViewModelInject constructor(private val categoriesRep
                     categories.value = deferred.await()
 
                     if (categories.value.isNullOrEmpty()) {
-                        val def =
+                        val deferred =
                             async { categoriesRepo.getCategoriesApi().sortedBy { it.categories } }
-                        categories.value = def.await()
-                        updateRoomDB(def.await())
+                        categories.value = deferred.await()
+                        updateRoomDB(deferred.await())
                     }
                 }
             } catch (e: Exception) {
@@ -43,7 +43,7 @@ class CategoriesViewModel @ViewModelInject constructor(private val categoriesRep
     private fun updateRoomDB(list: List<Categories>) {
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                withContext(Dispatchers.Default) {
+                withContext(Dispatchers.IO) {
                     list
                 }.forEach {
                     launch { categoriesRepo.saveCategories(it) }
