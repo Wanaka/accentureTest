@@ -1,5 +1,6 @@
 package com.haag.accenturetest.retrofit
 
+import com.haag.accenturetest.util.Constants
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,9 +15,9 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideNotificationService(): CategoriesAPI {
+    fun provideCategoryService(): CategoriesAPI {
         return Retrofit.Builder()
-            .baseUrl("https://private-anon-851568b03f-androidtestmobgen.apiary-mock.com/")
+            .baseUrl(Constants.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(CategoriesAPI::class.java)

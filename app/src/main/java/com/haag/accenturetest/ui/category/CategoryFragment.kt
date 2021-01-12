@@ -1,7 +1,6 @@
 package com.haag.accenturetest.ui.category
 
 import android.os.Bundle
-import android.util.Log.d
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +10,6 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.haag.accenturetest.R
-import com.haag.accenturetest.model.Book
 import com.haag.accenturetest.model.Response
 import com.haag.accenturetest.util.lineDivider
 import dagger.hilt.android.AndroidEntryPoint
@@ -23,11 +21,6 @@ class CategoryFragment : Fragment() {
     private val vm: CategoryViewModel by viewModels()
     private val args: CategoryFragmentArgs by navArgs()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        activity?.title = args.category.categories
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -38,6 +31,7 @@ class CategoryFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        activity?.title = args.category.categories
 
         vm.getCategory(args.category.type).observe(viewLifecycleOwner, Observer {
             categoryAdapter(it)

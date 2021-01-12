@@ -7,65 +7,68 @@
 
     <TextView
         android:id="@+id/nameTxt"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
         android:text="name"
         android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/cultureTxt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="24dp"
+        android:text="culture"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/textView" />
 
     <TextView
         android:id="@+id/genderTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:text="gender"
         app:layout_constraintStart_toStartOf="@+id/nameTxt"
         app:layout_constraintTop_toBottomOf="@+id/nameTxt" />
 
     <TextView
-        android:id="@+id/cultureTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="culture"
-        app:layout_constraintStart_toEndOf="@+id/genderTxt"
-        app:layout_constraintTop_toTopOf="@+id/genderTxt" />
-
-    <TextView
-        android:id="@+id/bornTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="born"
-        app:layout_constraintStart_toStartOf="@+id/textView12"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
-
-    <TextView
         android:id="@+id/deadTxt"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginEnd="24dp"
         android:text="dead"
-        app:layout_constraintStart_toEndOf="@+id/bornTxt"
-        app:layout_constraintTop_toTopOf="@+id/bornTxt" />
+        app:layout_constraintBottom_toBottomOf="@+id/textView13"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView13"
+        app:layout_constraintTop_toTopOf="@+id/textView13" />
 
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:text="Title"
-        app:layout_constraintStart_toStartOf="@+id/bornTxt"
-        app:layout_constraintTop_toBottomOf="@+id/bornTxt" />
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/textView12"
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
     <TextView
         android:id="@+id/aliases"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:text="Aliases"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/titleCharacterTxt"
         app:layout_constraintTop_toBottomOf="@+id/titleCharacterTxt" />
 
@@ -73,7 +76,7 @@
         android:id="@+id/aliasestxt"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/aliases"
@@ -83,8 +86,9 @@
         android:id="@+id/playedBy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:text="Played by"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/aliasestxt"
         app:layout_constraintTop_toBottomOf="@+id/aliasestxt" />
 
@@ -92,19 +96,21 @@
         android:id="@+id/playedByTxt"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/playedBy"
-        app:layout_constraintTop_toBottomOf="@+id/playedBy" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/playedBy"
+        app:layout_constraintTop_toTopOf="@+id/playedBy"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/titleCharacterTxt"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/title"
@@ -114,8 +120,9 @@
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:text="*"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/genderTxt"
         app:layout_constraintTop_toBottomOf="@+id/genderTxt" />
 
@@ -123,8 +130,31 @@
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
+        android:layout_marginStart="8dp"
         android:text="x"
-        app:layout_constraintBottom_toTopOf="@+id/deadTxt"
-        app:layout_constraintStart_toStartOf="@+id/deadTxt" />
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/bornTxt"
+        app:layout_constraintStart_toEndOf="@+id/bornTxt"
+        app:layout_constraintTop_toTopOf="@+id/bornTxt" />
+
+    <TextView
+        android:id="@+id/bornTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="born"
+        app:layout_constraintBottom_toBottomOf="@+id/textView12"
+        app:layout_constraintStart_toEndOf="@+id/textView12"
+        app:layout_constraintTop_toTopOf="@+id/textView12" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="|"
+        app:layout_constraintBottom_toBottomOf="@+id/genderTxt"
+        app:layout_constraintStart_toEndOf="@+id/genderTxt"
+        app:layout_constraintTop_toTopOf="@+id/genderTxt" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
