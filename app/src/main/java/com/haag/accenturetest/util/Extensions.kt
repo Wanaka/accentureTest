@@ -23,6 +23,6 @@ fun region(region: String): String {
         "The Reach" -> "https://bit.ly/2HSCW5N"
         "Dorne" -> "https://bit.ly/2HOcavT"
         "The Stormlands" -> "https://bit.ly/34F2sEC"
-        else -> ""
+        else -> " "
     }
 }
